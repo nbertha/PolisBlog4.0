@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Polis Blog</title>
+<!-- Angular JS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<!-- Google Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,400italic|Rokkitt:400,700" rel="stylesheet" type="text/css">
+<!-- Bootstrap CSS -->
+<link href="file:///Macintosh%20HD/Users/Nickbertha/Desktop/Polis/Polis%20Blog%20Remake/Blog%204.0/bootstrap.css" rel="stylesheet">
+<!-- Polis Blog CSS -->
+<link href="file:///Macintosh%20HD/Users/Nickbertha/Desktop/Polis/Polis%20Blog%20Remake/Blog%204.0/PolisBlog4.0.css" rel="stylesheet" type="text/css">
+</head>
+
+										<!-- Start of the Content -->
+
+<body>
+<div id="mainwrapper">
+										<!-- Top Navigation Bar -->
+<nav class="navbar navbar-default" id = "topbar">
+  <div class="container-fluid"> 
+    
+    						<!-- Brand and toggle get grouped for better mobile display -->
+                            
+   	 <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span 		class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" id = "logo" >Polis</a>
+     </div>
+      
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="defaultNavbar1">
+      <ul class="nav navbar-nav navbar-right" id = "links">
+        <li><a href="#">Blog<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link<span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+							 <!-- Orange Bar under top bar -->
+
+<div class="container-fluid" id= "bottombar">
+  <div class="row">
+  	  <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right" id = "linksbelow">
+        <li><a href="#">Blog<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link<span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+ </div>
+</div>
+
+      <!--************************************************************************
+    						Main Blog content starts here
+    ****************************************************************************-->
+  <div id="content">
+    <section id="mainContent"> 
+      <h1><!-- Blog title -->Companies That 
+Inspire Us: Feastly  </h1>
+      <h3><!-- Tagline -->Post #5 | April 21st 2015</h3>
+      <iframe id="bannerImage"></iframe>
+      <p>Discovering Feastly was a great feeling because we viewed it as a proof of our concept that doesn’t encroach on our vision. What Feastly does is simple: it allows users to discover pop-up restaurants and rising chefs around them. Like Polis, it combines two user groups, those seeking a unique culinary experience and those seeking to provide it.  </p>
+      <p>Upon entering Feastly’s browsing section, you can scroll through pages of unique meals offered by both aspiring and established chefs within your chosen criteria. Meals vary from “Virgin Islands Feast,” to “Vietnamese Family Style Supper,” once you find one that interests you, you pay the pre agreed price and then its as easy as just showing up. </p>
+      <p>But enough about them.</p>
+      <p>Feastly is important to Polis because it validates a few of our assumptions: </p>
+      <ol>
+      <li>There is an appetite for new and unique experiences </li>
+      <li>People are willing to create these experiences for others </li>
+      </ol>
+      <p>These are two key components of the foundational hypothesis of Polis. We want to empower people to both create and to find awesome events and projects that would not have existed otherwise, which is what Feastly is doing with meals. We believe the concept of building events from nothing can, and will, extend past meals. Like Feastly, we believe that by providing a simple interface of events that are easy to attend but also valuable, fun, and unique, we can create a new type of social experience.</p>
+      <p>Cheers</p>
+      <p>Nick & Teddy</p>
+   </section>
+   
+ <!--************************************************************************
+    Sidebar starts here. It contains a searchbox, sample ad image and 6 links
+    ****************************************************************************-->
+   	<section id="sidebar"> 
+
+      <p id = "sidebar-title">View Past Blog Posts</p>
+      <div id="adimage"><img src="../Blog 3.0/BlogPostAssets/images/300x250.gif" alt=""/></div>
+      <nav>
+        <ul>
+          <li><a href="#" title="Link">Link1</a></li>
+          <li><a href="#" title="Link">Link2</a></li>
+          <li><a href="#" title="Link">Link3</a></li>
+          <li><a href="#" title="Link">Link4</a></li>
+          <li><a href="#" title="Link">Link5</a></li>
+          <li><a href="#" title="Link">Link6</a></li>
+        </ul>
+      </nav>
+    </section>
+    
+     <!--************************************************************************
+   								 Commentbox starts here
+    ****************************************************************************-->
+       <div id="commentbox" ng-app>
+            <form ng-controller="FrmController">
+                <form ng-controller="FrmController">
+                    <textarea ng-model="txtcomment" placeholder="Your Comment" style="width:550px"></textarea>
+                    <button ng-click="btn_add();" style="margin-top:10px;">Post Comment</button>
+
+                    <h4>Comments</h4>
+                    <ul>
+                        <li ng-repeat="comnt in comment"> {{ comnt }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
+                    </ul>
+                </form> 
+             </form> 
+
+       	</div>
+
+        <script type="text/javascript">
+            function FrmController($scope) {
+                $scope.comment = [];
+                $scope.btn_add = function() {
+                    if($scope.txtcomment !=''){
+                    $scope.comment.push($scope.txtcomment);
+                    $scope.txtcomment = "";
+                    }
+                }
+
+                $scope.remItem = function($index) {
+                    $scope.comment.splice($index, 1);
+                }
+            }
+        </script>
+        
+         <!--************************************************************************
+
+	    ****************************************************************************-->
+   
+   
+</div>
+</div>
+
+</body>
+</html>
